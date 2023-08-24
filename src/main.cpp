@@ -1,20 +1,28 @@
 #include "functions.hpp"
 #include <time.h>
 #define k 20
+#define qtdArq 2
 
 int main() {
     
     clock_t startTime, endTime;
     startTime = clock();
+    int cont=1;
+    string filename = "";
 
     unordered_map<string, int> glossario;
     vector<string> stopWords;
     vector<pair<string, int>> heap;
-    string filename = "data/entrada.txt";
-    string filestopWords = "data/stopwords.txt";
 
+    string filestopWords = "data/stopwords.txt";
     processStopWords(filestopWords, stopWords);
-    processArq(filename, glossario, stopWords);
+
+    while(cont <= qtdArq){
+        filename = "data/txt" + to_string(cont) + ".txt";
+        processArq(filename, glossario, stopWords);
+        cont++;
+    }
+    
     addHeap(glossario, heap, k);
 
     cout << "\n\n-> TOP " << k << " PALAVRAS MAIS FREQUENTES (PALAVRA: OCORRENCIA)\n" << endl;
