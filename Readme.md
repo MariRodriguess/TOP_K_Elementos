@@ -108,11 +108,14 @@ As seguintes bibliotecas foram incorporadas a este programa:
 
 A saída deve conter as K palavras mais frequentes do texto de entrada em ordem crescente.
 
-<h3><b>Entrada</b></h3>
-<img src="imagens/entrada.jpg">
+<h4><b>Entrada teste</b></h4>
+<img src="https://github.com/MariRodriguess/TOP_K_Elementos/assets/127866299/d680088d-dbc6-4a3b-85a3-70e387418783">
 
-<h3><b>Saida</b></h3>
-<img src="imagens/saida.jpg">
+<h4><b>Saida teste</b></h4>
+<img src="https://github.com/MariRodriguess/TOP_K_Elementos/assets/127866299/0eef1dd6-957e-4fc5-86b3-807501643380">
+
+<h4><b>Saida dos textos pedidos da disciplina (Dom Casmurro + Semana de Machado de Assis)</b></h4>
+<img src="https://github.com/MariRodriguess/TOP_K_Elementos/assets/127866299/6db21c95-d374-47df-95bd-b35c2905884d">
 
 
 ## ✔️Conclusão
