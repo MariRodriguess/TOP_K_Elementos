@@ -166,6 +166,8 @@ Resumidamente, as escolhas das estruturas de dados, bem como a consideração de
 - https://acervolima.com/diferenca-entre-min-heap-e-max-heap/
 - https://en.cppreference.com/w/cpp/container/unordered_map
 - https://www.tutorialspoint.com/data_structures_algorithms/heap_data_structure.htm
+- https://stackoverflow.com/questions/19411742/what-is-the-default-hash-function-used-in-c-stdunordered-map
+- https://www.appsloveworld.com/cplus/100/6/what-is-the-default-hash-function-used-in-c-stdunordered-map
 
 ## 👾Compilação e execução
 
@@ -174,7 +176,6 @@ Resumidamente, as escolhas das estruturas de dados, bem como a consideração de
   * Sistema Operacional Windows 11 Pro;
   * Terminal do Visual Studio;
   * 12GB de RAM.
-<br>
 
 * **(!!!)** Inicialmente, duas configurações precisam ser especificadas no código:
 
