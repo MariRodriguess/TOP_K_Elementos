@@ -10,17 +10,17 @@
 
 ## 📌Sumário
 
-- [Introdução](#Introdução)
-- [Objetivos](#Objetivos)
-- [Arquivos](#Arquivos)
-- [Resolução do Problema](#Resolução-do-problema)
-- [Funções](#Funções)
-- [Bibliotecas](#Bibliotecas)
-- [Resultados](#Resultados)
-- [Conclusão](#Conclusão)
-- [Referências](#Referências)
-- [Compilação e execução](#Compilação-e-execução)
-- [Contato](#Contato)
+- [Introdução](#introdução)
+- [Objetivos](#objetivos)
+- [Arquivos](#arquivos)
+- [Resolução do Problema](#resolução-do-problema)
+- [Funções](#funções)
+- [Bibliotecas](#bibliotecas)
+- [Resultados](#resultados)
+- [Conclusão](#conclusão)
+- [Referências](#referências)
+- [Compilação e execução](#compilação-e-execução)
+- [Contato](#contato)
 
 ## ✒️Introdução
 
@@ -38,19 +38,19 @@ O objetivo deste trabalho consiste em projetar e implementar um programa em C/C+
 - Faz parte do projeto do programa fornecer uma saída legível.
 
 ## 📄Arquivos
-- <strong>Main.cpp:</strong> Leitura dos arquivos ```entrada.txt```, ```stopwords.txt```, realização das chamadaa das funções necessários para o funcionamento do programa.
+- <strong>Main.cpp:</strong> Leitura dos arquivos de entrada e do arquivo de stop words, criação das principais estruturas do código, e realização das chamadaa das funções necessários para o funcionamento do programa.
 - <strong>functions.hpp:</strong> Declaração das funções.
 - <strong>functions.cpp:</strong> Desenvolvimento das funções. 
-- <strong>data/entrada.txt:</strong> Texto de entrada.
-- <strong>data/stopwords.txt:</strong> Stop words, como por exemplo, para artigo (a, o, as,os) e para conjunções (e, ou).
+- <strong>data/txtx.txt:</strong> Texto de entrada (x é um parâmetro ajustável que diz o número dos respectivos arquivos txt).
+- <strong>data/stopwords.txt:</strong> Arquivo txt contendo as stop words, como por exemplo, para artigo (a, o, as,os) e para conjunções (e, ou).
 
 ## 🔨Resolução do problema
 
-A fim de resolver eficientemente o problema de identificar as K palavras mais frequentes em uma coleção de textos,  código fornecido utiliza uma combinação eficaz de estruturas de dados. Vamos discutir as principais estruturas utilizadas no contexto do código e como elas se relacionam com o problema em questão:
+A fim de resolver eficientemente o problema de identificar as K palavras mais frequentes em uma coleção de textos, o código fornecido utiliza uma combinação eficaz de estruturas de dados. Vamos discutir as principais estruturas utilizadas no contexto do código e como elas se relacionam com o problema em questão:
 
 <h3><b>Unodered map como Tabela Hash</b></h3>
 
-O código faz uso do recurso do C++ chamado 'unordered_map' do C++, que é frequentemente utilizada como uma tabela de dispersão (hash table), e permite armazenar pares chave-valor, oferecendo acesso rápido aos valores com base nas chaves. A eficiência das operações em uma tabela de dispersão depende da qualidade da função de hash que mapeia as chaves para posições na estrutura subjacente. No caso do GCC (GNU Compiler Collection), onde este código está sendo compilado, a implementação da estrutura unordered_map utiliza uma variedade de funções de hash especializadas para diferentes tipos de chaves.
+O código faz uso do recurso do C++ chamado 'unordered_map', que é frequentemente utilizada como uma tabela de dispersão (hash table), e permite armazenar pares chave-valor, oferecendo acesso rápido aos valores com base nas chaves. A eficiência das operações em uma tabela de dispersão depende da qualidade da função de hash que mapeia as chaves para posições na estrutura subjacente. No caso do GCC (GNU Compiler Collection), onde este código está sendo compilado, a implementação da estrutura unordered_map utiliza uma variedade de funções de hash especializadas para diferentes tipos de chaves.
 
 Para tipos simples, como ponteiros e inteiros, as funções de hash retornam os próprios valores ou representações simples. Para tipos mais complexos, como strings, o GCC emprega o algoritmo MurmurHashUnaligned2, que é conhecido por suas propriedades de dispersão eficientes e uniformes. O resultado final do MurmurHashUnaligned2 é um valor hash que é uma combinação complexa dos bits dos dados de entrada, misturados e processados ao longo de várias iterações. Essa complexidade ajuda a minimizar colisões e a garantir que pequenas variações nos dados resultem em alterações significativas nos valores de hash. Isso contribui para um desempenho sólido e eficiente das operações de tabela de dispersão no contexto da biblioteca padrão do C++.
 
@@ -101,7 +101,9 @@ O código apresentado implementa um "heapify_min" usando um vector chamado "heap
 
 <h3><b>Vetores para Armazenamento de Stop Words e Heap</b></h3>
 
-Vetores são utilizados para armazenar as "stop words" e também para criar um heap de palavras mais frequentes. As "stop words" são carregadas em um vetor chamado "stopWords" por meio da função "processStopWords". Isso permite que as "stop words" sejam consultadas de maneira eficiente quando se verifica se uma palavra encontrada é uma "stop word". Além disso, outro vetor chamado "heap" de pares (PAIR) é usado para manter as K palavras mais frequentes. 
+A estrutura de dados "vector" do C++ é utilizada para armazenar as "stop words" e também para criar um heap de palavras mais frequentes. As "stop words" são carregadas em um vector chamado "stopWords" por meio da função "processStopWords". Isso permite que as "stop words" sejam consultadas de maneira eficiente quando se verifica se uma palavra encontrada é uma "stop word". Além disso, outro vector chamado "heap" de pares (PAIR) é usado para manter as K palavras mais frequentes. 
+
+Dessa forma, a utilização da estrutura de dados "vector" do C++ simplifica o armazenamento e gerenciamento das "stop words" e das palavras mais frequentes.
 
 <h3><b>Expressões Regulares (Regex) para Processamento de Texto:</b></h3>
 
@@ -109,14 +111,14 @@ A expressão regular "wordRegex" é usada para identificar palavras nos textos. 
 
 ## 🔨 Funções 
 
-- ```processStopWords:``` Durante a leitura do arquivo que contém as palavras de parada (stop words), elas são adicionadas a um vetor. Esse vetor é usado para comparação durante o processo de leitura do arquivo de entrada principal.
+- ```processStopWords:``` Durante a leitura do arquivo que contém as palavras de parada (stop words), elas são adicionadas a um vector. Esse vector é usado para comparação durante o processo de leitura do(s) arquivo(s) de entrada principal.
 
 - ```processArq:```Esta função é responsável por abrir o(s) arquivo(s) de entrada contendo o texto para leitura. Cada palavra é lida usando a estrutura de expressões regulares (REGEX). Se uma palavra começar ou terminar com um hífen devido à formatação do texto, esses hífens são eliminados. Em seguida, a função "verifPalavra" é chamada para processar a palavra.
 
 - ```verifStopWords:```Esta função é do tipo booleano e verifica se uma palavra está contida no vetor de "stop words". Ela retorna verdadeiro se a palavra estiver presente no vetor e falso caso contrário.
 
 - ```validar:```
-Outra função booleana, "validar", é usada para verificar palavras de tamanho dois. Ela examina se a palavra contém caracteres especiais. Por exemplo, se a palavra consistir em apenas um caractere especial, como " ” ", ela é considerada inválida. Caso contrário, a palavra é considerada válida.
+Outra função booleana, "validar", é usada para verificar palavras de tamanho dois. Ela examina se a palavra contém caracteres especiais, ou se é um multi characters. Por exemplo, se a palavra consistir em apenas um caractere especial, como " ” ", ela é considerada inválida. Caso contrário, a palavra é considerada válida.
 
 - ```verifPalavra:```A função "verifPalavra" é a função principal que centraliza o processo de verificação de uma palavra. Primeiro, é chamada a função "verifStopWords". Se a palavra não for uma "stop word" e passar nesse teste, a função "validar" é chamada para verificar se a palavra é válida. Se ambas as condições forem atendidas, a função "addGlossario" é chamada para adicionar a palavra ao glossário.
 
@@ -155,11 +157,9 @@ Neste projeto, abordamos a resolução do problema de identificar as palavras ma
 
 O uso do 'unordered_map' permitiu a contagem eficiente das ocorrências de cada palavra no texto. Essa estrutura de dados, baseada em uma tabela de dispersão (hash), oferece inserção e busca rápidas, com complexidade média de O(1), ideal para manter as ocorrências das palavras em um formato chave-valor. O "vector" foi escolhido para manter uma lista de "stop words". Embora a busca linear em um vetor possa ter complexidade O(n), neste caso, a lista de "stop words" é relativamente pequena, o que torna a busca aceitável. A estrutura do heap foi essencial para manter as K palavras mais frequentes. Através do heap de mínimo, garantimos que as K palavras com menores ocorrências sejam mantidas no topo, facilitando a substituição de palavras menos frequentes à medida que novas palavras são processadas.
 
-Ao comparar essas estruturas, é possível considerar a substituição do uso de um "unordered_map" por um "map". Ambos possuem complexidade média de inserção e busca de O(1), entretanto, o "unordered_map" se destaca por sua eficiência em operações de busca em cenários onde a ordem não é um fator crítico, como ocorre neste projeto. Além disso, o uso do heap é justificado pela própria natureza do problema, visto que a busca pela K-ésima palavra mais frequente é uma operação central, tornando o heap uma escolha apropriada.
-
 Adicionalmente, para futuras otimizações, pode-se considerar a substituição do uso de expressões regulares pelo emprego de "istringstream" e tokenização. Isso tende a acelerar o processamento, visto que o processo de tokenização pode ser mais eficiente e direto em comparação ao uso de expressões regulares.
 
-Resumidamente, as escolhas das estruturas de dados, bem como a consideração de otimizações como a substituição das expressões regulares, contribuíram para uma solução eficaz no problema de identificar palavras mais frequentes.
+Resumidamente, as escolhas das estruturas de dados, bem como a consideração de otimizações como a substituição das expressões regulares, contribuíram para uma solução eficaz no problema de identificar palavras mais frequentes. Esse processo também proporcionou uma valiosa oportunidade para aprofundar o entendimento de novas estruturas de dados e sua aplicação na resolução de problemas.
 
 ## ✔️Referências
 - https://builtin.com/software-engineering-perspectives/heapify-heap-tree-cpp
